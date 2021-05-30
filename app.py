@@ -3,12 +3,13 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
-
+import flask
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-	return render_template('home.html')
+@app.route('/index')
+def index():
+	return flask.render_template('home.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
